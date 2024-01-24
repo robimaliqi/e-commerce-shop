@@ -7,3 +7,14 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+48.times do
+  product_name = Faker::Commerce.unique.product_name.split.last(2).join(' ')
+  photo = Unsplash::Photo.search(product_name).first
+  product = Product.create(
+    name: product_name,
+    description: Faker::Lorem.sentence,
+    image: photo.urls.regular,
+    price: Faker::Commerce.price(range: 0..1000.0, as_string: false)
+  )
+  puts "Product '#{product.name}' created with ID #{product.id} and image related to '#{product_name}'"
+end
