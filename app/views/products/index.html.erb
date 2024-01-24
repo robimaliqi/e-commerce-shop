@@ -1,2 +1,28 @@
-<h1>Products#index</h1>
-<p>Find me in app/views/products/index.html.erb</p>
+<div class="row">
+  <div class="col-12 col-lg-3">
+  Filtering
+  </div>
+  <div class="col-12 col-lg-9">
+    <div class="row">
+      <% @products.each_slice(3) do |product_group|%>
+        <% product_group.each do |product| %>
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card mb-5">
+              <%= image_tag product.image, class: "card-img-top" %>
+                <div class="card-body">
+                  <h5 class="card-title">
+                    <%= product.name %><br>
+                  </h5>
+                  <p class="card-text">
+                    <%= product.description %>
+                  </p>
+                  <%= number_to_currency(product.price) %><br>
+                  <%= button_to "Add to Cart", "#", class: "btn btn-primary" %>
+                </div>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
