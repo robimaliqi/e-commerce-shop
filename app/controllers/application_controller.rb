@@ -1,5 +1,4 @@
 class ApplicationController < ActionController::Base
-  before_action :authenticate_user!
 
   def current_cart
     cart = Cart.find_or_create_by(user: current_user)
