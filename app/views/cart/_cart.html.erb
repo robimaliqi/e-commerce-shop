@@ -1,16 +1,15 @@
-<!-- app/views/shared/_cart.html.erb -->
 <li class="nav-item dropdown">
   <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     <i class="bi bi-cart"></i>
-    <!-- Display the cart item count or other information here if needed -->
+    <span class="badge rounded-pill badge-notification bg-danger">
+      <%= content_tag :div, current_cart.quantity, id: "cart_count" %>
+    </span>
   </a>
   <ul class="dropdown-menu">
-    <%# Display cart items here %>
     <% current_cart.cart_items.each do |cart_item| %>
       <li><%= link_to cart_item.product.name, product_path(cart_item.product) %></li>
     <% end %>
 
-    <%# Display a message if the cart is empty %>
     <% if current_cart.cart_items.empty? %>
       <li class="dropdown-item">Cart is empty</li>
     <% end %>
