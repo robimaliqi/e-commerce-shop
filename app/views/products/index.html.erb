@@ -17,7 +17,7 @@
                     <%= product.description %>
                   </p>
                   <%= number_to_currency(product.price) %><br>
-                  <%= button_to "Add to Cart", "#", class: "btn btn-primary" %>
+                  <%= button_to "Add to Cart", carts_add_path, params: { product: product }, class: "btn btn-primary" %>
                 </div>
             </div>
           </div>
