@@ -5,13 +5,28 @@
       <%= content_tag :div, current_cart.quantity, id: "cart_count" %>
     </span>
   </a>
-  <ul class="dropdown-menu">
+  <ul class="dropdown-menu dropdown-menu-lg-end text-center shadow-sm">
     <% current_cart.cart_items.each do |cart_item| %>
-      <li><%= link_to cart_item.product.name, product_path(cart_item.product) %></li>
+      <li>
+        <div class="cart-item">
+          <%= image_tag(cart_item.product.image, class: "cart-item-image", width: 60, height: 60) %>
+          <div class="cart-item-details">
+            <p><%= cart_item.product.name %></p>
+            <p>Price: <%= number_to_currency(cart_item.product.price) %></p>
+          </div>
+        </div>
+      </li>
     <% end %>
 
     <% if current_cart.cart_items.empty? %>
       <li class="dropdown-item">Cart is empty</li>
+    <% end %>
+
+    <% if current_cart.cart_items.present? %>
+      <li class="dropdown-item total">
+        <p>Total: <%= "Total price logic goes here" %></p>
+        <%= link_to "Checkout", "#", class: "btn btn-primary" %>
+      </li>
     <% end %>
   </ul>
 </li>
