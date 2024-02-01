@@ -6,5 +6,11 @@
         <%= f.text_field :query, class: "form-control" %>
         <%= f.sublmit "Search", class: "btn btn-outline-secondary" %>
         </div>
+
+        <%= f.select :sort, [
+          ["Price Low to High", :price_lth],
+          ["Price High to Low, :price_htl"]
+          ], { include_blank: true}, 
+          class: "form-select mb-3" %>
     <% end %>
   </div>
