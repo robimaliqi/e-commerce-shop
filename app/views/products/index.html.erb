@@ -1,7 +1,5 @@
 <div class="row mt-4">
-  <div class="col-12 col-lg-3">
-  Filtering
-  </div>
+  <%= render "products/filtering" %>
   <div class="col-12 col-lg-9">
     <div class="row">
       <% @products.each_slice(3) do |product_group|%>
