@@ -8,7 +8,7 @@
         <h3 class="mb-2 lead fw-bold"><%= cart_item.product.name %></h3>
       </div>
       <div>
-        <span class="lead text-info fw-bold">PRICE</span>
+        <span class="lead text-primary fw-bold"><%= number_to_currency(cart_item.product.price)%></span>
           REMOVE ITEM 
       </div>
     </div>
