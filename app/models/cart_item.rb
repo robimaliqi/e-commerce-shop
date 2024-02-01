@@ -14,7 +14,7 @@ class CartItem < ApplicationRecord
     update_total_price
     broadcast_replace_to cart,
                          target: dom_id(self, "quantity"),
-                         partial: "carts/item_quantity",
+                         partial: "cart/item_quantity",
                          locals: { cart_item: self }
   end
 
@@ -33,14 +33,14 @@ class CartItem < ApplicationRecord
   def update_total_price
     broadcast_replace_to cart,
                          target: "total_price",
-                         partial: "carts/total_price",
+                         partial: "cart/total_price",
                          locals: { current_cart: cart }
   end
 
   def update_item_count
     broadcast_replace_to cart,
                          target: "cart_count",
-                         partial: "carts/item_count",
+                         partial: "cart/item_count",
                          locals: { count: cart.quantity }
   end
 end
