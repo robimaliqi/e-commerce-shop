@@ -1,8 +1,9 @@
+<%= turbo_stream_from current_cart%>
 <li class="nav-item dropdown">
   <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     <i class="bi bi-cart"></i>
     <span class="badge rounded-pill badge-notification bg-danger">
-      <%= content_tag :div, current_cart.quantity, id: "cart_count" %>
+      <%= render "cart/item_count", count: current_cart.quantity %>
     </span>
   </a>
   <ul class="dropdown-menu dropdown-menu-lg-end text-center shadow-sm">
