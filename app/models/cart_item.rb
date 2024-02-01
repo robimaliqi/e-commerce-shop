@@ -5,45 +5,42 @@ class CartItem < ApplicationRecord
   belongs_to :product
 
   after_create_commit do
-    broadcast_replace_to cart,
-                         target: "cart_count",
-                         partial: "cart/item_count",
-                         locals: { count: cart.quantity }
-    broadcast_replace_to cart,
-                         target: "total_price",
-                         partial: "cart/total_price",
-                         locals: { current_cart: cart }
+    update_item_count
+    update_total_price
   end
 
   after_update_commit do
-    broadcast_replace_to cart,
-                         target: "cart_count",
-                         partial: "cart/item_count",
-                         locals: { count: cart.quantity }
-
+    update_item_count
+    update_total_price
     broadcast_replace_to cart,
                          target: dom_id(self, "quantity"),
-                         partial: "cart/item_quantity",
+                         partial: "carts/item_quantity",
                          locals: { cart_item: self }
-    broadcast_replace_to cart,
-                         target: "total_price",
-                         partial: "cart/total_price",
-                         locals: { current_cart: cart }
   end
 
   after_destroy_commit do
     broadcast_remove_to cart
-    broadcast_replace_to cart,
-                         target: "cart_count",
-                         partial: "cart/item_count",
-                         locals: { count: cart.quantity }
-  broadcast_replace_to cart,
-                         target: "total_price",
-                         partial: "cart/total_price",
-                         locals: { current_cart: cart }
+    update_item_count
+    update_total_price
   end
 
   def total_price
     quantity.to_i * product.price.to_f
+  end
+
+  private
+
+  def update_total_price
+    broadcast_replace_to cart,
+                         target: "total_price",
+                         partial: "carts/total_price",
+                         locals: { current_cart: cart }
+  end
+
+  def update_item_count
+    broadcast_replace_to cart,
+                         target: "cart_count",
+                         partial: "carts/item_count",
+                         locals: { count: cart.quantity }
   end
 end
