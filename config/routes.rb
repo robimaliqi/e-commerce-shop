@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   namespace :carts do
     resource :add, only: :create
+    resource :reduce, only: :create
     resource :remove, only: :destroy
   end
 end
