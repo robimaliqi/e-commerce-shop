@@ -15,7 +15,7 @@
     <div class="d-flex align-items-center justify-content-between">
       <div></div>
       <div class="d-inline-flex align-items-center px-4 fw-bold text-secondary border rounded-2">
-      -
+        <%= button_to "-", carts_reduce_path, params: { product: cart_item.product }, class: "btn px-0 py-2" %>
         <div class="form-control m-0 px-2 py-4 text-center text-md-end border-0">
           <%= render "cart/item_quantity", cart_item: cart_item %>
         </div>
