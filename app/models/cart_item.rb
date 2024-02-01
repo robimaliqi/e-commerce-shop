@@ -15,4 +15,12 @@ class CartItem < ApplicationRecord
                          partial: "cart/item_count",
                          locals: { count: cart.quantity }
   end
+
+  after_destroy_commit do
+    broadcast_remove_to cart
+    broadcast_replace_to cart,
+                         target: "cart_count",
+                         partial: "cart/item_count",
+                         locals: { count: cart.quantity }
+  end
 end
