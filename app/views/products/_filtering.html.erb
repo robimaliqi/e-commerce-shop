@@ -4,14 +4,40 @@
       <%= form_for :search, url: search_path do |f| %>
         <div class="input-group mb-3">
         <%= f.text_field :query, class: "form-control" %>
-        <%= f.sublmit "Search", class: "btn btn-outline-secondary" %>
+        <%= f.submit "Search", class: "btn btn-outline-secondary" %>
         </div>
 
         <%= f.select :sort, [
           ["Price Low to High", :price_lth],
-          ["Price High to Low, :price_htl"]
+          ["Price High to Low", :price_htl]
           ], { include_blank: true}, 
           class: "form-select mb-3" %>
+
+          <div class="h4">Price</div>
+          <ul class="list-group mb-3">
+
+            <li class="list-group-item">
+              <div class="form-check">
+                <%= f.check_box :price, { multiple: true, class: "form-check-input" }, "lt1000", nil %>
+                <%= f.label :price, "< £1000", class: "form-check-label" %>
+              </div>
+            </li>
+
+            <li class="list-group-item">
+              <div class="form-check">
+                <%= f.check_box :price, { multiple: true, class: "form-check-input" }, "between1000and2500", nil %>
+                <%= f.label :price, "£1000 - £2500", class: "form-check-label" %>
+              </div>
+            </li>
+
+            <li class="list-group-item">
+              <div class="form-check">
+                <%= f.check_box :price, { multiple: true, class: "form-check-input" }, "gt2500", nil %>
+                <%= f.label :price, "> £2500", class: "form-check-label" %>
+              </div>
+            </li>
+
+          </ul>
       <% end %>
     <% end %>
   </div>
