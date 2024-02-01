@@ -1,6 +1,6 @@
 <%= content_tag :div, class: "row mb-8 align-items-center", id: dom_id(cart_item), style: "padding: 10px;" do %>
   <div class="align-self-stretch col-12 col-lg-3 mb-4 mb-md-0">
-    <%= image_tag cart_item.product.image, class: "img-fuild", style: "max-width: 300px; max-height: 300px;" %>
+    <%= image_tag cart_item.product.image, class: "img-fluid" %>
   </div>
   <div class="col-12 col-md-9">
     <div class="d-flex justify-content-between">
@@ -8,7 +8,7 @@
         <h3 class="mb-2 lead fw-bold"><%= cart_item.product.name %></h3>
       </div>
       <div>
-        <span class="lead text-primary fw-bold"><%= number_to_currency(cart_item.product.price)%></span>
+        <span class="lead text-primary fw-bold"><%= number_to_currency(cart_item.product.price) %></span>
         <%= button_to "Remove", carts_remove_path, params: { product: cart_item.product }, method: :delete, class: "btn btn-primary mb-2" %>
       </div>
     </div>
