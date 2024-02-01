@@ -1,4 +1,4 @@
-module Carts 
+module Carts
   class AddsController < ApplicationController
     def create
       if product_found?
