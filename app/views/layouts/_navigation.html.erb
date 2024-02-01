@@ -1,46 +1,42 @@
-<!-- Navbar-->
 <nav class="navbar navbar-expand-lg navbar-light bg-body-tertiary mb-2">
   <div class="container justify-content-between">
-  <!-- Toggle button-->
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle right elements">
+    <!-- Toggle button -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <!-- Left elements -->
-    <div class="d-flex">
-      <div class="collapse navbar-collapse" id="navbarCollapse">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <%= link_to 'Home', root_path, class: 'nav-link active' %>
-          </li>
-          <li class="nav-item">
-            <%= link_to 'Products', products_path, class: 'nav-link' %>
-          </li>
-          <li class="nav-item">
-            <%= link_to 'Contact Us', "#", class: 'nav-link' %>
-          </li>
-        </ul>
-      </div>
-    </div>
 
-    <!-- Center elements -->
-    <a class="navbar-brand mx-auto">E-commerce Shop</a>
+    <a class="navbar-brand mx-auto d-block d-sm-none">E-commerce Shop</a>
 
-    <!-- Right elements and toggle button -->
-    <div class="d-flex">
-      <div class="collapse navbar-collapse" id="navbarCollapse">
-        <ul class="navbar-nav flex-row">
-          <%= render 'cart/cart' %>
-          <li class="nav-item dropdown me-3 me-lg-1">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              <i class="bi bi-person-fill"></i>
-            </a>
-            <ul class="dropdown-menu dropdown-menu-lg-end">
-              <li><a class="dropdown-item" href="#">My Profile</a></li>
-              <li><a class="dropdown-item" href="#">Log out</a></li>
-            </ul>
-          </li>
-        </ul>
-      </div>
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <ul class="navbar-nav mb-2 mb-lg-0">
+        <li class="nav-item">
+          <%= link_to 'Home', root_path, class: 'nav-link active' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'Products', products_path, class: 'nav-link active' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'Contact Us', "#", class: 'nav-link active' %>
+        </li>
+      </ul>
+
+      <a class="navbar-brand mx-auto d-none d-lg-block">E-commerce Shop</a>
+
+      <ul class="navbar-nav flex-row">
+        <%= render 'cart/cart' %>
+      </ul>
+      <ul class="navbar-nav flex-row">
+        <li class="nav-item dropdown me-3 me-lg-1">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="bi bi-person-fill"></i>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-lg-end">
+            <li><a class="dropdown-item" href="#">My Profile</a></li>
+            <li><a class="dropdown-item" href="#">Log out</a></li>
+          </ul>
+        </li>
+      </ul>
     </div>
   </div>
 </nav>
