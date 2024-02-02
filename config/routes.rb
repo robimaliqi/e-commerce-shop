@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :products, only: [:index, :show]
   resource :checkout, only: :show
   post :search, to: "searches#show"
+  get :search, to: "searches#show"
   root 'home#index'
 
   namespace :carts do
