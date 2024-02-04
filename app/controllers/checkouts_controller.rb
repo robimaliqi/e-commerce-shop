@@ -9,7 +9,7 @@ class CheckoutsController < ApplicationController
       billing_address_collection: :auto,
       mode: :payment,
       payment_method_types: ['card'],
-      line_items: some_value,
+      line_items: cart_items,
       success_url: checkout_payment_url,
       cancel_url: root_url
     )
