@@ -8,7 +8,7 @@ class CheckoutsController < ApplicationController
     session = Stripe::Checout::Session.create(
       billing_address_collection: :auto,
       mode: :payment,
-      payment_method_type: ['card'],
+      payment_method_types: ['card'],
       line_items: ,
       success_url: checkout_payment_url,
       cancel_url: root_url
