@@ -5,11 +5,11 @@ class CheckoutsController < ApplicationController
   end
 
   def create
-    session = Stripe::Checout::Session.create(
+    session = Stripe::Checkout::Session.create(
       billing_address_collection: :auto,
       mode: :payment,
       payment_method_types: ['card'],
-      line_items: ,
+      line_items: some_value,
       success_url: checkout_payment_url,
       cancel_url: root_url
     )
