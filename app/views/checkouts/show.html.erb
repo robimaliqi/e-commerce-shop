@@ -21,6 +21,5 @@
       </div>
     </div>
   </div>
-
-  <a class="btn btn-primary w-100 text-uppercase" href="#" data-config-id="primary-action">Confirm Order</a>
+  <%= button_to, "Check out", checkout_path, data: { turbo: false }, class: "btn btn-primary w-100 text-uppercase" %>
 </div>
