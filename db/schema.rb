@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_01_30_093822) do
+ActiveRecord::Schema[7.1].define(version: 2024_02_04_110224) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -29,6 +29,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_30_093822) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id", null: false
+    t.integer "status", default: 0
+    t.string "stripe_session_id"
     t.index ["token"], name: "index_carts_on_token", unique: true
     t.index ["user_id"], name: "index_carts_on_user_id"
   end
