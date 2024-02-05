@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'contact_us/index'
   devise_for :users
   resources :products, only: [:index, :show]
   post :search, to: "searches#show"
