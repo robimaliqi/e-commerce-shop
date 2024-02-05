@@ -17,7 +17,7 @@
           <%= link_to 'Products', products_path, class: 'nav-link', style: 'line-height: 50px;' %>
         </li>
         <li class="nav-item">
-          <%= link_to 'Contact Us', "#", class: 'nav-link', style: 'line-height: 50px;' %>
+          <%= link_to 'Contact Us', contact_us_index_path, class: 'nav-link', style: 'line-height: 50px;' %>
         </li>
       </ul>
 
@@ -32,9 +32,18 @@
             <i class="bi bi-person-fill"></i>
           </a>
           <ul class="dropdown-menu dropdown-menu-lg-end">
-            <li><a class="dropdown-item" href="#">My Profile</a></li>
-             <%= link_to "Sign Out", destroy_user_session_path, data: { turbo_method: :delete, turbo_confirm: 'Are you sure you want to sign out?' }, class: "dropdown-item" %>
-          </li>
+            <% if user_signed_in? %>
+              <li class="nav-item">
+                <%= link_to "Sign Out", destroy_user_session_path, data: { turbo_method: :delete, turbo_confirm: 'Are you sure you want to sign out?' }, class: "nav-link active" %>
+              </li>
+            <% else %>
+              <li class="nav-item">
+                <%= link_to "Log In", new_user_session_path, class: "nav-link active" %>
+              </li>
+              <li class="nav-item">
+                <%= link_to "Sign Up", new_user_registration_path, class: "nav-link active" %>
+              </li>
+            <% end %>
           </ul>
         </li>
       </ul>
