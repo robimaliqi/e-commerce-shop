@@ -11,4 +11,8 @@ class ApplicationController < ActionController::Base
     cart
   end
   helper_method :current_cart
+
+  def after_sign_out_path_for(resource)
+    root_path 
+  end
 end
