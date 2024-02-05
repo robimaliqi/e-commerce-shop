@@ -1,21 +1,26 @@
 class CheckoutsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: :show
 
   def show
   end
 
   def create
-    session = Stripe::Checkout::Session.create(
-      billing_address_collection: :auto,
-      mode: :payment,
-      payment_method_types: ['card'],
-      line_items: cart_items,
-      success_url: checkout_payment_url,
-      cancel_url: root_url
-    )
+    if user_signed_in?
+      session = Stripe::Checkout::Session.create(
+        billing_address_collection: :auto,
+        mode: :payment,
+        payment_method_types: ['card'],
+        line_items: cart_items,
+        success_url: checkout_payment_url,
+        cancel_url: root_url
+      )
 
-    current_cart.update!(stripe_session_id: session.id)
-    redirect_to session.url, allow_other_host: true
+      current_cart.update!(stripe_session_id: session.id)
+      redirect_to session.url, allow_other_host: true
+    else
+      session[:redirect_to_checkout] = true
+      redirect_to new_user_session_path
+    end
   end
 
   private
