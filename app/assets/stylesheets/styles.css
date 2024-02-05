@@ -1,0 +1,26 @@
+.home-container {
+  background-image: url("/assets/home_page.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 85vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.shop-button {
+  padding: 15px 30px;
+  font-size: 1.5rem;
+  background-color: #3498db;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-top: 60vh;
+  box-shadow: 0 4px 8px 4px rgba(0, 0, 0, 0.1);
+}
+
+.log-in-container {
+  box-shadow: 0 4px 8px 4px rgba(0, 0, 0, 0.1);
+}
