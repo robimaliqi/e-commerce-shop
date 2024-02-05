@@ -5,6 +5,10 @@ Rails.application.routes.draw do
   get :search, to: "searches#show"
   root 'home#index'
 
+  scope module: :stripe_event do
+    post "/stripe/webhook", to: "webhook#event"
+  end
+
   resource :checkout, only: [:show, :create] do
     resource :payment, only: :show
   end
