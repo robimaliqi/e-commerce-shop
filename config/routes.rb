@@ -1,12 +1,14 @@
 Rails.application.routes.draw do
-  get 'contact_us/index'
-  devise_for :users
-  resources :products, only: [:index, :show]
-  post :search, to: "searches#show"
-  get :search, to: "searches#show"
   root 'home#index'
 
-  scope module: :stripe_event do
+  devise_for :users
+
+  resources :products, only: [:index, :show]
+
+  post :search, to: "searches#show"
+  get :search, to: "searches#show"
+
+  namespace :stripe_event do
     post "/stripe/webhook", to: "webhook#event"
   end
 
@@ -19,4 +21,6 @@ Rails.application.routes.draw do
     resource :reduce, only: :create
     resource :remove, only: :destroy
   end
+
+  get 'contact_us/index'
 end
