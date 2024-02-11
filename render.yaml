@@ -1,7 +1,7 @@
 databases:
   - name: postgres
-    databaseName: e-commerce-shop
-    user: e-commerce-shop
+    databaseName: mysite
+    user: mysite
     ipAllowList: []
 
 services:
