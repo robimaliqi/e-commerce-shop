@@ -1,12 +1,12 @@
 databases:
   - name: postgres
-    databaseName: mysite
-    user: mysite
+    databaseName: e-commerce-shop
+    user: e-commerce-shop
     ipAllowList: []
 
 services:
   - type: web
-    name: mysite
+    name: e-commerce-shop
     runtime: ruby
     plan: free
     buildCommand: "./bin/render-build.sh"
