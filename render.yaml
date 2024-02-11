@@ -2,7 +2,6 @@ databases:
   - name: postgres
     databaseName: mysite
     user: mysite
-    plan: free
     ipAllowList: []
 
 services:
