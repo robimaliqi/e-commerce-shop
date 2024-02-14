@@ -9,11 +9,11 @@
 <h1 align="center">E-commerce Shop</h1>
 
 <p align="center">
-  <img alt="Github top language" src="https://img.shields.io/github/languages/top/robimaliqi/app?color=56BEB8">
+  <img alt="Github top language" src="https://img.shields.io/github/languages/top/robimaliqi/e-commerce-shop?color=56BEB8">
 
-  <img alt="Github language count" src="https://img.shields.io/github/languages/count/robimaliqi/app?color=56BEB8">
+  <img alt="Github language count" src="https://img.shields.io/github/languages/top/robimaliqi/e-commerce-shop?color=56BEB8">
 
-  <img alt="Repository size" src="https://img.shields.io/github/repo-size/robimaliqi/app?color=56BEB8">
+  <img alt="Repository size" src="https://img.shields.io/github/languages/top/robimaliqi/e-commerce-shop?color=56BEB8">
 
   <!-- <img alt="License" src="https://img.shields.io/github/license/robimaliqi/app?color=56BEB8"> -->
 
@@ -50,11 +50,11 @@ A e-commerce shop where the user is able to add items to cart, to checkout the u
 
 ## :sparkles: Features
 
-:heavy_check_mark: User Authentication using device
-:heavy_check_mark: Stripe checkout
-:heavy_check_mark: Populating items using Faker and unsplash api for photos
-:heavy_check_mark: Pagination
-:heavy_check_mark: Sorting Items by price
+:heavy_check_mark: User Authentication using device<br>
+:heavy_check_mark: Stripe checkout<br>
+:heavy_check_mark: Populating items using Faker and unsplash api for photos<br>
+:heavy_check_mark: Pagination<br>
+:heavy_check_mark: Sorting Items by price<br>
 :heavy_check_mark: Turbo streams for updating without refreshing page
 
 ## :rocket: Technologies
