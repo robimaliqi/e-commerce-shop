@@ -19,5 +19,3 @@ production:
   <<: *default
   url: <%= ENV["DATABASE_URL"] %>
   database: e_commerce_shop_development
-  username: aaronmaliqi
-  password: <%= ENV["E_COMMERCE_SHOP_DATABASE_PASSWORD"] %>
