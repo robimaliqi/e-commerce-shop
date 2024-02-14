@@ -1,4 +1,4 @@
-<%= turbo_stream_from current_cart%>
+<%= turbo_stream_from current_cart %>
 <li class="nav-item dropdown">
   <a class="nav-link dropdown-toggle border rounded" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     <i class="bi bi-cart"></i> Checkout
@@ -7,25 +7,31 @@
     </span>
   </a>
   <ul class="dropdown-menu dropdown-menu-lg-end text-center shadow-sm">
-    <% current_cart.cart_items.each do |cart_item| %>
-      <li>
-        <div class="cart-item">
-          <%= image_tag(cart_item.product.image, class: "cart-item-image", width: 60, height: 60) %>
-          <div class="cart-item-details">
-            <p><%= cart_item.product.name %></p>
-            <p>Price: <%= number_to_currency(cart_item.product.price) %></p>
+    <% current_cart.cart_items.each_with_index do |cart_item, index| %>
+      <% if index < 3 %>
+        <li>
+          <div class="cart-item">
+            <%= image_tag(cart_item.product.image, class: "cart-item-image", width: 60, height: 60) %>
+            <div class="cart-item-details">
+              <p><%= cart_item.product.name %></p>
+              <p>Price: <%= number_to_currency(cart_item.product.price) %></p>
+            </div>
           </div>
-        </div>
-      </li>
+        </li>
+      <% end %>
     <% end %>
 
     <% if current_cart.cart_items.empty? %>
       <li class="dropdown-item">Cart is empty</li>
     <% end %>
 
+    <% if current_cart.cart_items.size > 3 %> <!-- Check if there are more than 4 items -->
+      <li class="dropdown-item">And <%= current_cart.cart_items.size - 4 %> more item(s)...</li>
+    <% end %>
+
     <% if current_cart.cart_items.present? %>
       <li class="dropdown-item total">
-        <p>Total: <%= "Total price logic goes here" %></p>
+        <p>Total: <%= render "cart/total_price", current_cart: current_cart %></p>
         <%= link_to "Checkout", checkout_path, class: "btn btn-primary" %>
       </li>
     <% end %>
