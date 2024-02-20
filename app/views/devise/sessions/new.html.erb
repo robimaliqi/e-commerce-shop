@@ -2,6 +2,11 @@
   <div class="container py-2 h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+        <% if flash[:alert] %>
+          <div class="alert alert-danger">
+            <%= flash[:alert] %>
+          </div>
+        <% end %>
         <div class="card bg-light" style="border-radius: 1rem;">
           <div class="card-body p-5 text-center">
 
@@ -13,12 +18,12 @@
               <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
                 <div class="form-outline form-white mb-4">
                   <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control form-control-lg" %>
-                  <label class="form-label" for="typeEmailX">Email</label>
+                  <label class="form-label" for="user_email">Email</label>
                 </div>
 
                 <div class="form-outline form-white mb-4">
                   <%= f.password_field :password, autocomplete: "current-password", class: "form-control form-control-lg" %>
-                  <label class="form-label" for="typePasswordX">Password</label>
+                  <label class="form-label" for="user_password">Password</label>
                 </div>
 
                 <% if devise_mapping.rememberable? %>
@@ -42,3 +47,4 @@
     </div>
   </div>
 </section>
+
